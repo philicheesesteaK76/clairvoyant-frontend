@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Started – ScoutMind</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Prevent selection globally, but allow it inside form elements */
+    * {
+      user-select: none;
+    }
+
+    input, textarea, button, select {
+      user-select: text;
+      pointer-events: auto;
+    }
+
+    form * {
+      pointer-events: auto;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+  <div class="min-h-screen flex items-center justify-center px-4">
+    <div class="w-full max-w-md text-center space-y-8">
+      <div>
+        <h1 class="text-4xl font-bold">Create Your Account</h1>
+        <p class="text-gray-700 mt-2">Sign up and unlock full access to ScoutMind’s predictive tools.</p>
+      </div>
+      <form class="space-y-4">
+        <input type="text" placeholder="Full Name" class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input type="email" placeholder="Email" class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <input type="password" placeholder="Password" class="w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-500 transition">Sign Up</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
