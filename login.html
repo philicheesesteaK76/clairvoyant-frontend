@@ -96,5 +96,35 @@
       </div>
     </div>
   </div>
+  <script>
+    document.querySelector("form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+    
+      const email = document.querySelector('input[type="email"]').value;
+      const password = document.querySelector('input[type="password"]').value;
+    
+      try {
+        const response = await fetch("https://clairvoyant-backend.onrender.com/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        });
+    
+        const data = await response.json();
+    
+        if (response.ok) {
+          alert("✅ Login successful!");
+          // You could also store user info in localStorage here
+          // localStorage.setItem("user", JSON.stringify(data));
+          // Redirect to your dashboard or homepage
+        } else {
+          alert("❌ Login failed: " + (data.error || data.details));
+        }
+      } catch (err) {
+        alert("⚠️ Error: " + err.message);
+      }
+    });
+    </script>
+    
 </body>
 </html>
