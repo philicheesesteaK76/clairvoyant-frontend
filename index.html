@@ -3,63 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ScoutMind – AI Sports Predictor</title>
+  <title>clAIrvoyant – AI Sports Predictor</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
     * {
       user-select: none;
-      -webkit-user-select: none;
-      -moz-user-select: none;
     }
-
+    input, textarea, button, select {
+      user-select: text;
+      pointer-events: auto;
+    }
+    form * {
+      pointer-events: auto;
+    }
     body {
       cursor: default;
-    }
-
-    @keyframes pulse-glow {
-      0%, 100% {
-        box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
-      }
-      50% {
-        box-shadow: 0 0 12px 6px rgba(59, 130, 246, 0.6);
-      }
-    }
-
-    .animate-glow {
-      animation: pulse-glow 2s infinite;
     }
   </style>
 </head>
 <body class="bg-white text-gray-900 opacity-0 transition-opacity duration-700 ease-out" onload="document.body.classList.remove('opacity-0')">
-
   <!-- Navigation -->
   <nav class="bg-white shadow-sm fixed w-full top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between h-16">
         <div class="flex items-center">
-          <a href="index.html" class="text-2xl font-bold text-blue-600 hover:text-blue-700">ScoutMind</a>
+          <a href="index.html" class="text-2xl font-bold text-blue-600 hover:text-blue-700" style="font-family: 'Inter', sans-serif;">
+            cl<span class="text-blue-600 font-extrabold tracking-wider">AI</span>rvoyant
+          </a>
         </div>
-      </div>
+        <div class="flex items-center space-x-4">
+          <a href="login.html" class="h-10 px-4 py-2 text-blue-600 font-medium border-2 border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition-colors duration-200 flex items-center space-x-1"><i class="fas fa-sign-in-alt"></i><span class="ml-1">Login</span></a>
+          <a href="get-started.html" class="h-10 px-4 py-2 text-white font-medium bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors duration-200 flex items-center space-x-1"><span>Sign Up</span><i class="fas fa-arrow-right ml-1"></i></a>
+        </div>      </div>
     </div>
   </nav>
 
   <!-- Main Content -->
   <main class="pt-24 pb-16 px-4 md:px-16 space-y-20">
-
-    <!-- Hero Section -->
     <section class="text-center space-y-6" data-aos="fade-up">
       <h1 class="text-4xl md:text-5xl font-bold tracking-tight">Predict Smarter with AI</h1>
       <p class="text-lg md:text-xl max-w-2xl mx-auto">
-        ScoutMind uses next-gen AI to analyze teams, players, and matchups for deep, real-time sports insights.
+        clAIrvoyant uses next-gen AI to analyze teams, players, and matchups for deep, real-time sports insights.
       </p>
       <div class="flex justify-center space-x-4">
         <a href="live-predictions.html" class="cursor-pointer px-6 py-3 border border-gray-300 rounded-2xl hover:bg-gray-100 transition-all duration-300">Live Predictions</a>
-        <a href="scoutbot.html" class="cursor-pointer px-6 py-3 bg-black text-white rounded-2xl shadow-md hover:bg-gray-800 transition-all duration-300 animate-glow">ScoutBot</a>
+        <a href="scoutbot.html" class="cursor-pointer px-6 py-3 bg-black text-white rounded-2xl shadow-md hover:bg-gray-800 transition-all duration-300">ScoutBot</a>
       </div>
     </section>
 
-    <!-- Features Section -->
     <section class="grid md:grid-cols-3 gap-8 text-center" data-aos="fade-up" data-aos-delay="200">
       <div class="block p-6 bg-white rounded-2xl shadow-md hover:shadow-xl hover:shadow-blue-200 hover:scale-[1.03] transform transition-all duration-300 cursor-pointer">
         <h3 class="text-xl font-semibold mb-2">Team & Player Scanner</h3>
@@ -75,20 +69,18 @@
       </div>
     </section>
 
-    <!-- Call to Action -->
     <section class="bg-gray-50 rounded-2xl p-10 text-center" data-aos="zoom-in-up" data-aos-delay="400">
       <h2 class="text-3xl font-bold mb-4">Unlock Advanced Sports Intelligence</h2>
-      <p class="text-gray-700 mb-6">Join ScoutMind today and get predictive power at your fingertips.</p>
+      <p class="text-gray-700 mb-6">Join clAIrvoyant today and get predictive power at your fingertips.</p>
       <a href="get-started.html" class="cursor-pointer px-8 py-3 bg-blue-600 text-white rounded-2xl shadow-md hover:bg-blue-500 transition-all duration-300">Get Started</a>
     </section>
-
   </main>
 
   <!-- Footer -->
   <footer class="bg-white border-t">
     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
       <div class="flex justify-between items-center flex-col sm:flex-row text-sm text-gray-500">
-        <div>© 2025 ScoutMind. All rights reserved.</div>
+        <div>© 2025 clAIrvoyant. All rights reserved.</div>
         <div class="mt-2 sm:mt-0">Made by <span class="font-medium text-gray-700">Philip Yu</span></div>
       </div>
     </div>
@@ -103,6 +95,5 @@
       easing: 'ease-out-quart'
     });
   </script>
-
 </body>
 </html>
