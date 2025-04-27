@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard – clAIrvoyant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    * { user-select: none; }
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Loading Screen -->
+  <div id="loadingScreen" class="fixed inset-0 z-50 flex items-center justify-center bg-white">
+    <div class="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="bg-white shadow-sm fixed w-full top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <a href="index.html" class="text-2xl font-bold text-blue-600 hover:text-blue-700">cl<span class="text-blue-600 font-extrabold tracking-wider">AI</span>rvoyant</a>
+        <button id="logoutButton" class="text-sm bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition">Logout</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="pt-24 px-6 opacity-0" id="mainContent">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      <h1 class="text-4xl font-bold">Welcome back, <span id="userEmail" class="text-blue-600"></span></h1>
+      <p class="text-gray-600">Ready to predict smarter today?</p>
+
+      <div class="grid md:grid-cols-3 gap-8 mt-10">
+        <a href="live-predictions.html" class="block bg-white rounded-2xl shadow-md p-6 hover:shadow-lg hover:scale-[1.02] transition">
+          <h2 class="text-xl font-semibold mb-2">Live Predictions</h2>
+          <p class="text-gray-600">See real-time AI predictions for matches.</p>
+        </a>
+        <a href="scoutbot.html" class="block bg-white rounded-2xl shadow-md p-6 hover:shadow-lg hover:scale-[1.02] transition">
+          <h2 class="text-xl font-semibold mb-2">ScoutBot</h2>
+          <p class="text-gray-600">Chat with AI for custom strategies and advice.</p>
+        </a>
+        <div class="block bg-white rounded-2xl shadow-md p-6 hover:shadow-lg hover:scale-[1.02] transition">
+          <h2 class="text-xl font-semibold mb-2">Performance Radar</h2>
+          <p class="text-gray-600">Visualize player and team stats.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t mt-12 opacity-0" id="footerContent">
+    <div class="max-w-7xl mx-auto py-6 px-4 text-center text-sm text-gray-500">
+      © 2025 clAIrvoyant. Made by Philip Yu.
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      // Hide loader and show content
+      const loader = document.getElementById('loadingScreen');
+      const main = document.getElementById('mainContent');
+      const footer = document.getElementById('footerContent');
+      loader.classList.add('opacity-0');
+      setTimeout(() => loader.remove(), 300);
+      main.classList.replace('opacity-0', 'opacity-100');
+      footer.classList.replace('opacity-0', 'opacity-100');
+
+      // Load user email
+      const userEmail = localStorage.getItem('userEmail');
+      if (!userEmail) return window.location.href = 'login.html';
+      document.getElementById('userEmail').textContent = userEmail;
+
+      // Logout
+      document.getElementById('logoutButton').addEventListener('click', () => {
+        localStorage.removeItem('userEmail');
+        window.location.href = 'login.html';
+      });
+    });
+  </script>
+
+</body>
+</html>

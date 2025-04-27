@@ -59,12 +59,18 @@
 
         <div>
           <label class="block text-sm font-medium text-gray-700">Password</label>
-          <input type="password" class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+          <input type="password" id="password" class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" required />
           <p class="mt-1 text-xs text-gray-500">Must be at least 8 characters long</p>
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-gray-700">Sport Interest</label>
+          <label class="block text-sm font-medium text-gray-700">Confirm Password</label>
+          <input type="password" id="confirmPassword" class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" required />
+          <p id="passwordMatchError" class="mt-1 text-xs text-red-500 hidden">Passwords do not match</p>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium text-gray-700">Favorite Sport</label>
           <select class="mt-1 w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M8%2011L3%206h10z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[length:16px_16px] bg-[right_12px_center]">
             <option>Basketball</option>
             <option>Football</option>
@@ -121,7 +127,17 @@
       e.preventDefault();
     
       const email = document.querySelector('input[type="email"]').value;
-      const password = document.querySelector('input[type="password"]').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const passwordMatchError = document.getElementById('passwordMatchError');
+      
+      // Check if passwords match
+      if (password !== confirmPassword) {
+        passwordMatchError.classList.remove('hidden');
+        return; // Stop form submission if passwords don't match
+      } else {
+        passwordMatchError.classList.add('hidden');
+      }
     
       try {
         const response = await fetch("https://clairvoyant-backend.onrender.com/api/register", {
